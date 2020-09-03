@@ -102,3 +102,71 @@ function exe3_calcpercentual(vet){
     alert(`O percentual de homens é de ${(conta/vet.length)*100}`)
 
 }
+
+// EXERCICIO 1
+
+function exe1_chefe() {
+
+    let vendedores = []
+    let vendas =[]
+    let opcao
+    do {
+
+        opcao = Number(prompt(`Cadastrar Vendedor[1]\nCadastrar Venda[2]\nSair`))
+
+        switch(opcao) {
+            case 1: cadastraVendedores(vendedores)
+                break
+            case 2: cadastraVendas(vendas, vendedores)
+                break
+            case 3: console.log(`Tchau`)
+                break
+            default: console.log(`Tente novamente ...`)
+        }
+    }while (opcao != 3)
+}
+
+function cadastraVendedores(vended) {
+    let objeto = new Object()
+    objeto.codigo = Number(prompt(`Informe o código do vendedor`))
+    objeto.nome = prompt(`Informe o nome do vendedor`)
+
+    //verificar existenca de vendedor
+    for (let i=0;i<vended.lenghht;i++){
+        if (vended[i].codigo == objeto.codigo){
+            alert(`Cadastro cancelado, pois ja existe vendedor`)
+            return 0
+        }
+    }
+    
+    // insere objeto no vetor vendedores
+    vended.push(objeto)
+
+}
+
+function cadastraVendas(venda, vendedores) {
+
+    let objeto = new Object()
+    objeto.codigo = Number(prompt(`Informe código da venda`))
+    objeto.vendedor = Number(prompt(`Informe código do vendedor`))
+    objeto.mes = Number(prompt(`Informe mês da venda`))
+    objeto.valor = Number(prompt(`Informe valor da venda`))
+
+    for (let i=0;i<vendedores.length;i++) {
+
+        if (objeto.vendedor == vendedores[i].codigo) {
+            
+            for (let i=0;i<venda.length;i++) {
+                if ((objeto.mes == venda[i].mes) && (objeto.vendedor == venda[i].vendedor)) {
+                    console.log(`Não podemos registrar a venda`)
+                    return 0
+                }
+            }
+            
+            venda.push(objeto)
+            console.log(`Venda registrada`)
+        }
+    }
+    alert(`Vendedor não existe`)
+}
+
