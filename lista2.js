@@ -112,19 +112,95 @@ function exe1_chefe() {
     let opcao
     do {
 
-        opcao = Number(prompt(`Cadastrar Vendedor[1]\nCadastrar Venda[2]\nSair`))
+        opcao = Number(prompt(`Cadastrar Vendedor[1]\nCadastrar Venda[2]\nConsultar venda mes[3]\nConsultar vendas[4]\nCnsultarVendadorMes[5]\nConsultar mes mais venda[6]\nSair[7]`))
 
         switch(opcao) {
             case 1: cadastraVendedores(vendedores)
                 break
             case 2: cadastraVendas(vendas, vendedores)
                 break
-            case 3: console.log(`Tchau`)
+            case 3: consultarVendasFmes(vendas)
+                break
+            case 4: consultarVendasF(vendas)
+                break
+            case 5: consultarVendedorMes(vendas)
+                break 
+            case 6: consultarMesmaisvenda(vendas)
+                break    
+            case 7: console.log(`Tchau`)
                 break
             default: console.log(`Tente novamente ...`)
         }
-    }while (opcao != 3)
+    }while (opcao != 7)
 }
+
+
+function consultarMesmaisvenda(venda) {
+
+    let meses = [0,0,0,0,0,0,0,0,0,0,0,0]
+
+    for (let i=0;i<venda.length;i++) {
+
+        let posicao = venda[i].mes
+        meses[posicao] = meses[posicao] + venda[i].valor
+    }
+
+    let maiorvalor = meses[0]
+    for (let i=1;i<meses.length;i++) {
+        if (meses[i] > maiorvalor) {
+            maiorvalor = meses[i]
+        }
+    }
+
+    let posicao = meses.indexOf(maiorvalor)
+
+}
+
+
+function consultarVendedorMes(venda) {
+
+    let mes = Number(prompt(`Informe o mês`))
+    let maiorVenda = 0
+    let vendedormaisvendeu = 0
+
+    for (let i=0;i<venda.length;i++) {
+        if (venda[i].mes == mes) {
+            if (venda[i].valor > maiorVenda) {
+                maiorVenda = venda[i].valor
+                vendedormaisvendeu = venda[i].vendedor
+            }
+        }
+    }
+
+}
+
+function consultarVendasF(venda){
+
+    let cod = Number(prompt(`Informe o código do vendedor`))
+    
+    let soma=0
+    for (let i=0;i<venda.length;i++) {
+        if (venda[i].vendedor == cod) {
+            soma = soma + vdas
+        }
+    }
+    alert(`A soma das vendas é ${soma}`)
+}
+
+function consultarVendasFmes(venda){
+
+    let cod = Number(prompt(`Informe o código do vendedor`))
+    let mes = Number(prompt(`Informe o mês da venda`))
+
+    for (let i=0;i<venda.length;i++) {
+        if ((venda[i].vendedor == cod) && (venda[i].mes == mes)) {
+
+            alert(`Valor da venda ${venda[i].valor}`)
+            return
+        }
+    }
+}
+
 
 function cadastraVendedores(vended) {
     let objeto = new Object()
@@ -169,4 +245,3 @@ function cadastraVendas(venda, vendedores) {
     }
     alert(`Vendedor não existe`)
 }
-
