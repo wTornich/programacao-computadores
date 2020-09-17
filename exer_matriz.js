@@ -69,3 +69,69 @@ function calculaMediaProvas(mat) {
     }
 
 }
+
+// --------------------------------------------------------------
+
+function timeschefe() {
+
+    let matrizpontos = []
+    let vettime = []
+    
+
+    timecadastro(matrizpontos, vettime)
+    calculamediapontos(matrizpontos, vettime)
+    maiorpontuacao(matrizpontos, vettime)
+}
+
+function maiorpontuacao(mat, vet) {
+
+    
+    for (let rodada=0;rodada<3;rodada++) {
+        let maiorp = mat[0][rodada]
+        let nomemaiorp = vet[0].nometime
+        for (let time=0;time<4;time++){
+            if (mat[time][rodada] > maiorp) {
+                maiorp = mat[time][rodada]
+                nomemaiorp = vet[time].nometime
+            }
+        }
+
+        alert(`O time com maior pontuação na rodada ${rodada+1} é ${nomemaiorp} e fez ${maiorp}`)
+        
+    }
+
+
+
+
+}
+
+function calculamediapontos(mat, vet) {
+
+    for (let time=0;time<4;time++) {
+        for (let rodada=0;rodada<3;rodada++){
+           vet[time].media = vet[time].media + mat[time][rodada]
+        }
+        vet[time].media = vet[time].media/3
+        alert(`Media do time ${time+1} é ${vet[time].media}`)
+    }
+
+}
+
+function timecadastro(mat, vet) {
+
+    for (let time=0;time<4;time++) {
+        let objeto = new Object()
+        objeto.nometime = prompt("Digite o nome do time ")
+        objeto.cidade = prompt("Digite a cidade do time")
+        objeto.media = 0
+
+        vet.push(objeto)
+        
+        mat[time] = []
+        for (let rodada=0;rodada<3;rodada++){
+            mat[time][rodada] = Number(prompt(`Digite os pontos do time ${vet[time].nometime} na rodada ${rodada+1}`))
+        }
+
+    }
+
+}
