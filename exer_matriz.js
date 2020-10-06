@@ -99,10 +99,6 @@ function maiorpontuacao(mat, vet) {
         alert(`O time com maior pontuação na rodada ${rodada+1} é ${nomemaiorp} e fez ${maiorp}`)
         
     }
-
-
-
-
 }
 
 function calculamediapontos(mat, vet) {

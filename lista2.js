@@ -208,7 +208,7 @@ function cadastraVendedores(vended) {
     objeto.nome = prompt(`Informe o nome do vendedor`)
 
     //verificar existenca de vendedor
-    for (let i=0;i<vended.lenghht;i++){
+    for (let i=0;i<vended.length;i++){
         if (vended[i].codigo == objeto.codigo){
             alert(`Cadastro cancelado, pois ja existe vendedor`)
             return 0
