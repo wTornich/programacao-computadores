@@ -43,7 +43,6 @@ function filtro(elemento){
 }
 
 
-
 // diferença entre filter e map
 // map não altera o tamanho do vetor, somente o valor do elemento
 //
