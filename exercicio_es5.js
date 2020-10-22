@@ -41,20 +41,6 @@ function chefe() {
         }
     }while (opcao != 7)
 
-    /*var cadastra = function(bibicreta){
-        bicicreta.push({
-            cod: Number(prompt(`Informe o código`)),
-            aro: Number(prompt(`Informe aro`)), 
-            modelo: prompt(`Informe modelo`),
-            marca: prompt(`Informe marca`),
-            valor: Number(prompt(`Informe valor`)),
-            ano: (prompt(`Digite o sexo\nPessoa ${cont}`)),
-        })     
-        alert(`Bicicreta cadastrada com sucesso!   Cod: ${vet[vet.lenght-1].codigo}`)
-    }*/
-
-    //****Se fazer desse jeito ^^^^ tem q chama a função depois pq tem q criar ela primeiro******  
-
 }
 
 
