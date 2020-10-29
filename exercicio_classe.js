@@ -17,5 +17,35 @@ class Aluno {
         this.p2 = p2
     }
 
+    notafinal = () => {
+        return (this.p1 + this.p2)/2
+    }
+
+    mostra = () => {
+        console.log(`Números ${this.naluno} Nome: ${this.nome} Idade: ${this.idade} Nota Final: ${this.notafinal()}`)
+    }
+
+    passou = () => {
+        if (this.notafinal() >= 6){
+            return `${this.nome} foi aprovado`
+        }else{
+            return `${this.nome} foi reprovado`
+        }
+    }
+
 }
 
+let aluno1 = new Aluno(1, 'Matheus', 18, 10, 5)
+console.log(`Nota final do aluno 1 = ${aluno1.notafinal()}`)
+aluno1.mostra()
+console.log(aluno1.passou())
+
+let num = Number(prompt('Informe o número do aluno'))
+let nom = prompt('Informe o nome do aluno')
+let idd = Number(prompt('Informe a idade do aluno'))
+let p = Number(prompt('Informe a nota1 do aluno'))
+let pp = Number(prompt('Informe a nota2 do aluno'))
+let aluno2 = new Aluno(num, nom, idd, p ,pp)
+console.log(`Nota final do aluno 2 = ${aluno2.notafinal()}`)
+aluno2.mostra()
+console.log(aluno2.passou())
