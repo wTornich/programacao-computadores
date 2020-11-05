@@ -14,6 +14,7 @@
                 // abre a requisição e utiliza o método GET (consulta) de dados
                 // temos que passar o endereço da API, ou seja, do recurso que queremos usar
                 requisicao.open(`GET`, `https://viacep.com.br/ws/${cep}/json/`, true)
+                requisicao.send()
                 // obter o resultado
                 requisicao.onload = function () {
                     //verifica se deu certo, se obtivemos o resultado com sucesso, vai no servidor e volta
@@ -29,10 +30,7 @@
                         console.log(`Requisição sem resposta`)
                     }
                 }
-
-                requisicao.send()
-
-
+                
             }
         </script>
     </head>
@@ -60,4 +58,10 @@
           
         </form>
     </body>
+
+    <!-- Garante a Segurança (ex: ao acesso ao banco de dados)-->
+
+
 </html>
+
+
