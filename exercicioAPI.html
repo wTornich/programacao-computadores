@@ -31,25 +31,40 @@
             consomeAPI = () => {
                 console.log("entrou")
                 
-                let cep = Number(document.getElementById(`filme`).value)
+                let titt = document.getElementById(`tit`).value
                 
                 let requisicao = new XMLHttpRequest()
                 
 
-                requisicao.open(`GET`, `https://viacep.com.br/ws/${cep}/json/`, true)
+                requisicao.open(`GET`, `http://www.omdbapi.com/?t=${titt}&apikey=________`, true)
                 requisicao.send()
                 requisicao.onload = function () {
                 
-                    if ((requisicao.readyState == 4) && (requisicao.status >= 200) && (requisicao.status <= 400)){
+                    //if ((requisicao.readyState == 4) && (requisicao.status >= 200) && (requisicao.status <= 400)){
                         resposta = JSON.parse(requisicao.responseText)
+                      
 
-                        document.getElementById(`logradouro`).innerHTML = resposta.logradouro
-                        document.getElementById(`bairro`).innerHTML = resposta.bairro
-                        document.getElementById(`localidade`).innerHTML = resposta.localidade
-                        document.getElementById(`UF`).innerHTML = resposta.uf
-                    }else{
-                        console.log(`Requisição sem resposta`)
-                    }
+                        document.getElementById(`Title`).innerHTML = resposta.Title
+                        document.getElementById(`Year`).innerHTML = resposta.Year
+                        document.getElementById(`Rated`).innerHTML = resposta.Rated
+                        document.getElementById(`Released`).innerHTML = resposta.Released
+                        document.getElementById(`Runtime`).innerHTML = resposta.Runtime
+                        document.getElementById(`Genre`).innerHTML = resposta.Genre
+                        document.getElementById(`Director`).innerHTML = resposta.Director
+                        document.getElementById(`Writer`).innerHTML = resposta.Writer
+                        document.getElementById(`Actors`).innerHTML = resposta.Actors
+                        document.getElementById(`Plot`).innerHTML = resposta.Plot
+                        document.getElementById(`Language`).innerHTML = resposta.Language
+                        document.getElementById(`Country`).innerHTML = resposta.Country
+                        document.getElementById(`Awards`).innerHTML = resposta.Awards
+                        document.getElementById(`Poster`).src = resposta.Poster
+                        document.getElementById(`Metascore`).innerHTML = resposta.Metascore
+                        document.getElementById(`Type`).innerHTML = resposta.Type
+                        document.getElementById(`Production`).innerHTML = resposta.Production
+                        
+                    //}else{
+                    //    console.log(`Requisição sem resposta`)
+                    //}
                 }
                 
             }
@@ -58,85 +73,64 @@
     <body>
         <form>
             <div class="form-group"> <!-- Form-group é do bootstrap (ele agrupa os dados) -->
-                <label> FILME </label>
-                <input class="form-control" type="number" id="filme"/> <!-- Form-control e do bootstrap (ele contem os dados)-->
+                <label> KEY </label>
+                <input class="form-control" type="text" id="tit"/> <!-- Form-control e do bootstrap (ele contem os dados)-->
             </div>
             <div class="form-group">
-                <button type="button" onClick="consomeAPI()" class="btm btn-primary"> Consome API </button>
+                <button type="button" onClick="consomeAPI()" class="btn btn-primary"> Consome API </button>
             </div>
             <div class="form-group">
-                Title: <label id="logradouro"></label>
+                Title: <label id="Title"></label>
             </div>
             <div class="form-group">
-                Year: <label id="logradouro"></label>
+                Year: <label id="Year"></label>
             </div>
             <div class="form-group">
-                Rated: <label id="logradouro"></label>
+                Rated: <label id="Rated"></label>
             </div>
             <div class="form-group">
-                Released: <label id="logradouro"></label>
+                Released: <label id="Released"></label>
             </div>
             <div class="form-group">
-                Runtime: <label id="logradouro"></label>
+                Runtime: <label id="Runtime"></label>
             </div>
             <div class="form-group">
-                Genre: <label id="logradouro"></label>
+                Genre: <label id="Genre"></label>
             </div>
             <div class="form-group">
-                Director: <label id="logradouro"></label>
+                Director: <label id="Director"></label>
             </div>
             <div class="form-group">
-                Writer: <label id="logradouro"></label>
+                Writer: <label id="Writer"></label>
             </div>
             <div class="form-group">
-                logradouro: <label id="logradouro"></label>
+                Actors: <label id="Actors"></label>
             </div>
             <div class="form-group">
-                logradouro: <label id="logradouro"></label>
+                Language: <label id="Language"></label>
             </div>
             <div class="form-group">
-                logradouro: <label id="logradouro"></label>
+                Plot: <label id="Plot"></label>
             </div>
             <div class="form-group">
-                logradouro: <label id="logradouro"></label>
+                Country: <label id="Country"></label>
+            </div>            
+            <div class="form-group">
+                Awards: <label id="Awards"></label>
             </div>
             <div class="form-group">
-                logradouro: <label id="logradouro"></label>
+                Poster: <img  id="Poster">
             </div>
             <div class="form-group">
-                logradouro: <label id="logradouro"></label>
+                Metascore: <label id="Metascore"></label>
             </div>
             <div class="form-group">
-                logradouro: <label id="logradouro"></label>
+                Type: <label id="Type"></label>
             </div>
             <div class="form-group">
-                logradouro: <label id="logradouro"></label>
+                Production: <label id="Production"></label>
             </div>
-            <div class="form-group">
-                logradouro: <label id="logradouro"></label>
-            </div>
-            <div class="form-group">
-                logradouro: <label id="logradouro"></label>
-            </div>
-            <div class="form-group">
-                logradouro: <label id="logradouro"></label>
-            </div>
-            <div class="form-group">
-                logradouro: <label id="logradouro"></label>
-            </div>
-            <div class="form-group">
-                logradouro: <label id="logradouro"></label>
-            </div>
-            <div class="form-group">
-                logradouro: <label id="logradouro"></label>
-            </div>
-            <div class="form-group">
-                logradouro: <label id="logradouro"></label>
-            </div>
-            <div class="form-group">
-                logradouro: <label id="logradouro"></label>
-            </div>
-          
+    
           
         </form>
     </body>
